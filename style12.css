@@ -1,0 +1,21 @@
+div {
+    width: 210px;
+    border: 1px grey solid;
+    border-radius: 5px;
+    text-align: center;
+    background-color: blue;
+}
+
+img {
+    width: 200px;
+    border: 5px solid rgb(236, 183, 191);
+    border-radius: 50%;
+}
+
+div:hover {
+    background-color: red;
+    border-radius: 20%;
+    background-size: cover;
+    border: 5 px solid green;
+    transition: background-color 2s,border-radius 1s;
+}
