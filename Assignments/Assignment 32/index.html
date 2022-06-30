@@ -1,0 +1,53 @@
+<html>
+    <body>
+        <script>
+            function capitalize(str){
+                return str[0].toUpperCase()+str.slice(1);
+            }
+            function returnDay(x){
+                switch(x){
+                    case 1 : 
+                    console.log("Monday");
+                    break;
+                    case 2 : 
+                    console.log("Tuesday");
+                    break;
+                    case 3 : 
+                    console.log("Wednesday");
+                    break;
+                    case 4 : 
+                    console.log("Thursday");
+                    break;
+                    case 5 : 
+                    console.log("Friday");
+                    break;
+                    case 6 : 
+                    console.log("Saturday");
+                    break;
+                    case 7 : 
+                    console.log("Sunday");
+                    break;
+                    default :
+                    console.log(null);
+                }
+            }
+            function isShortWeather(temperature){
+                console.log(temperature>=75)
+            }
+            function lastElement(arr){
+                (arr.length)?console.log(arr[arr.length-1]):null;
+            }
+            function multiply(x,y){
+                return x*y
+            }
+            function sumArray(arr){
+                let sum =0;
+                for(num of arr){
+                    sum+=num;
+                }
+                return sum;
+            }
+            
+        </script>
+    </body>
+</html>`
