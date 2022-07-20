@@ -1,82 +1,351 @@
 <html>
-    <body>
-        <h1 id="heading">Functions</h1>
-        <script>
-            function singSong(){
-                console.log("SA")
-                console.log("RE")
-                console.log("GA")
-                console.log("MA")
-                console.log("PA")
-                console.log("DHA")
-                console.log("NI")
-                console.log("SA")
+  <head>
+    <style>
+      .triangle {
+        height: 0;
+        width: 0;
+        border-top: 50px solid red;
+        border-bottom: 50px solid yellow;
+        border-left: 50px solid blue;
+        border-right: 50px solid transparent;
+      }
+      .battery-icon {
+        border: 5px solid #ccc;
+        border-radius: 10px;
+        height: 60px;
+        width: 200px;
+        position: relative;
+      }
+      .battery-icon::after {
+        content: "";
+        background: #ccc;
+        border-radius: 5px;
+        height: 30px;
+        width: 15px;
+        position: absolute;
+        right: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .battery-icon::before {
+        content: "";
+        animation: fill 2.5s linear infinite;
+        background-color: #c8f86b;
+        border-radius: 5px;
+        height: 52px;
+        width: 40%;
+        position: absolute;
+        left: 4px;
+        top: 4px;
+      }
+      @keyframes fill {
+        0% {
+          width: 50%;
+        }
+        50% {
+          width: 70%;
+        }
+        100% {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">Functions</h1>
+    <div class="battery-icon"></div>
+    <div class="triangle"></div>
+    <script>
+      function singSong() {
+        console.log("SA");
+        console.log("RE");
+        console.log("GA");
+        console.log("MA");
+        console.log("PA");
+        console.log("DHA");
+        console.log("NI");
+        console.log("SA");
+      }
+      console.log(singSong());
+      console.log(singSong());
+      function idiotPerson(firstName, lastName) {
+        console.log(`${firstName} ${lastName} is Idiot`);
+      }
+      idiotPerson("Anand", "Babu");
+      idiotPerson("Babu", "Anand");
+      idiotPerson("MKS");
+      function repeat(str, num) {
+        let result = "";
+        for (let i = 0; i < num; i++) {
+          result += str;
+        }
+        console.log(result);
+      }
+      repeat("Chickens", 45);
+      function add(num1, num2) {
+        if (typeof num1 !== "number" || typeof num2 !== "number") {
+          return false;
+        }
+        return num1 + num2;
+      }
+      console.log(add(42000, 69));
+      console.log(add(42000, "hell"));
+      console.log(add(42000, add(56, 89)));
+      function bankRobbery() {
+        const heros = ["Spiderman", "Iron Man", "Thor"];
+        function cryForHelp() {
+          for (let hero of heros) {
+            function inner() {
+              console.log(`PLEASE HELP ME, ${hero}`);
             }
-            console.log(singSong());
-            console.log(singSong());
-            function idiotPerson(firstName, lastName){
-                console.log(`${firstName} ${lastName} is Idiot`);
-            }
-            idiotPerson('Anand','Babu')
-            idiotPerson('Babu','Anand')
-            idiotPerson('MKS')
-            function repeat(str,num){
-                let result ='';
-                for(let i=0;i<num;i++){
-                    result+=str;
-                }
-                console.log(result);
-            }
-            repeat('Chickens',45)
-            function add(num1,num2){
-                if(typeof num1 !== 'number' || typeof num2 !== 'number'){
-                    return false;
-                }
-                return num1+num2;
-            }
-            console.log(add(42000,69))
-            console.log(add(42000,"hell"))
-            console.log(add(42000,add(56,89)))
-            function bankRobbery(){
-                const heros = ['Spiderman','Iron Man','Thor'];
-                function cryForHelp(){
-                    for(let hero of heros){
-                        function inner(){
-                            console.log(`PLEASE HELP ME, ${hero}`)
-                        }
-                        inner();
-                    }
-                }
-                cryForHelp();
-            }
-            bankRobbery();
-            function add(x,y){
-                return x+y;
-            }
-            const multiply = function(x,y){
-                return x*y;
-            }
-            const PI = 3.14;
-            let greet = function(){
-                console.log("Hello!")
-            }
-            greet();
-            function callTwice(func){
-                func();
-                func();
-            }
-            function callTenTimes(f){
-                for(let i=0;i<10;i++){
-                    f();
-                }
-            }
-            function rollDie(){
-                const roll = Math.floor(Math.random()*6)+1;
-                console.log(roll)
-            }
-            callTwice(rollDie);
-            callTenTimes(rollDie);
-            
-        </script>
-    </body>
+            inner();
+          }
+        }
+        cryForHelp();
+      }
+      bankRobbery();
+      function add(x, y) {
+        return x + y;
+      }
+      const multiply = function (x, y) {
+        return x * y;
+      };
+      const PI = 3.14;
+      let greet = function () {
+        console.log("Hello!");
+      };
+      greet();
+      function callTwice(func) {
+        func();
+        func();
+      }
+      function callTenTimes(f) {
+        for (let i = 0; i < 10; i++) {
+          f();
+        }
+      }
+      function rollDie() {
+        const roll = Math.floor(Math.random() * 6) + 1;
+        console.log(roll);
+      }
+      callTwice(rollDie);
+      callTenTimes(rollDie);
+      function makeMysteryFunc() {
+        const rand = Math.random();
+        console.log(rand);
+        if (rand > 0.5) {
+          return function () {
+            console.log("Congrats, I am a good function!!");
+            console.log("You win a Million Dollars!!!");
+          };
+        } else {
+          return function () {
+            const x = Math.floor(Math.random * 9999) + 1;
+            console.log("YOU HAVE BEEN INFECTED BY A COMPUTER VIRUS");
+            console.log("STOP TRYING TO CLOSE THIS WINDOW");
+            console.log("STOP TRYING TO CLOSE THIS WINDOW");
+            console.log("STOP TRYING TO CLOSE THIS WINDOW");
+            console.log("STOP TRYING TO CLOSE THIS WINDOW");
+            console.log("STOP TRYING TO CLOSE THIS WINDOW");
+            console.log("STOP TRYING TO CLOSE THIS WINDOW");
+            console.log("STOP TRYING TO CLOSE THIS WINDOW");
+            console.log("STOP TRYING TO CLOSE THIS WINDOW");
+            console.log("STOP TRYING TO CLOSE THIS WINDOW");
+            console.log("STOP TRYING TO CLOSE THIS WINDOW");
+            console.log("STOP TRYING TO CLOSE THIS WINDOW");
+          };
+        }
+      }
+      const mystery = makeMysteryFunc();
+      console.log(mystery());
+      function makeBetweenFunc(min, max) {
+        return function (num) {
+          return num >= min && num <= max;
+        };
+      }
+      const isChild = makeBetweenFunc(0, 18);
+      console.log(isChild);
+      console.log(isChild(18));
+      const isAdult = makeBetweenFunc(19, 64);
+      console.log(isAdult(90));
+      const isSenior = makeBetweenFunc(65, 120);
+      console.log(isSenior(70));
+      const myMath = {
+        PI: 3.14159,
+        square: function (num) {
+          return num * num;
+        },
+        cube: function (num) {
+          return num ** 3;
+        },
+      };
+      console.log(myMath.PI);
+      console.log(myMath.square(5));
+      console.log(myMath.cube(7));
+      console.log();
+      const cat = {
+        name: "Blue Steele",
+        color: "grey",
+        breed: "scottish fold",
+        meow() {
+          console.log("Meow Meow Meow");
+          console.log(`${this.name} says Meowww!!`);
+        },
+      };
+      cat.meow();
+      const meow2 = cat.meow;
+      console.log(meow2());
+      function scream() {
+        console.log("Ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+      }
+      scream();
+      window.scream();
+      console.log(this);
+      try {
+        hello.toUpperCase();
+      } catch {
+        console.log("Error!!!");
+      }
+      console.log("After");
+      function yell(msg) {
+        try {
+          console.log(msg.toUpperCase().repeat(3));
+        } catch {
+          console.log("Please pass a string nex time!");
+        }
+      }
+      yell(1);
+      const numbers = [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+      ];
+      function print(element) {
+        console.log(element);
+      }
+      numbers.forEach(print);
+      numbers.forEach(function (el) {
+        if (el % 2 === 0) {
+          console.log(el);
+        }
+      });
+      const movies = [
+        { title: "Amadeus", score: 99, year: 1984 },
+        { title: "Stand by Me", score: 85, year: 2013 },
+        { title: "Parasite", score: 95, year: 2019 },
+        { title: "Alien", score: 90, year: 1979 },
+      ];
+      movies.forEach(function (movie) {
+        console.log(`${movie.title} - ${movie.score}/100`);
+      });
+      const doubles = numbers.map(function (num) {
+        return num * 2;
+      });
+      console.log(doubles);
+      const titles = movies.map(function (movie) {
+        return movie.title.toUpperCase();
+      });
+      console.log(titles);
+      const sum = (x, y) => {
+        return x + y;
+      };
+      console.log(add(5, 89));
+      const square = (x) => {
+        return x ** 2;
+      };
+      console.log(square(5));
+      const rollTwoDice = () => {
+        return Math.floor(Math.random() * 12) + 1;
+      };
+      console.log(rollTwoDice());
+      const cube = (x) => {
+        return x ** 3;
+      };
+      console.log(cube(4));
+      const randomNumber100 = () => Math.floor(Math.random() * 100) + 1;
+      console.log(randomNumber100());
+      const minus = (a, b) => a - b;
+      minus(5, 89);
+      const newMovies = movies.map(function (movie) {
+        return `${movie.title} - ${movie.score / 10}`;
+      });
+      console.log(newMovies);
+      const newMovie = movies.map((movie) => {
+        `${movie.title} - ${movie.score / 10}`;
+      });
+      console.log(newMovie);
+      console.log("HELLO!!!");
+      setTimeout(() => {
+        console.log("...are you still there");
+      }, 3000);
+      console.log("GOODBYE!!!");
+      const id = setInterval(() => {
+        console.log(Math.floor(Math.random() * 100) + 1);
+      }, 1000);
+      clearInterval(id);
+      const filter = numbers.filter((n) => {
+        return n < 10;
+      });
+      console.log(filter);
+      const recentMovies = movies.filter((movie) => {
+        return movie.year > 2000;
+      });
+      console.log(recentMovies);
+      const goodTitles = recentMovies.map((movie) => movie.title);
+      console.log(goodTitles);
+      const goodMovies = movies.filter((m) => m.score > 95).map((m) => m.title);
+      const badMovies = movies.filter((m) => m.score <= 95).map((m) => m.title);
+      console.log(goodMovies);
+      console.log(badMovies);
+      const scores = [95, 98, 87, 79, 94, 92, 99, 90, 86, 84, 89, 74];
+      console.log(scores.every((score) => score > 75));
+      console.log(scores.some((score) => score > 75));
+      const prices = [9.99, 1.5, 19.99, 49.99, 30.5, 0.99];
+      let total = 0;
+      for (let price of prices) {
+        total += price;
+      }
+      console.log(total);
+      console.log(
+        prices.reduce((total, price) => {
+          return total + price;
+        })
+      );
+      console.log(
+        prices.reduce((min, price) => {
+          return price < min ? price : min;
+        })
+      );
+      console.log(
+        prices.reduce((max, price) => {
+          return price > max ? price : max;
+        })
+      );
+      console.log(
+        movies.reduce((bestMovie, curMovie) => {
+          if (curMovie.score > bestMovie.score) {
+            return curMovie;
+          } else {
+            return bestMovie;
+          }
+        })
+      );
+      const odds = [1,3,5,7,9,11,13,15];
+      console.log(odds.reduce((sum,num)=>sum+num,100))
+      const person = {
+        firstName: 'Viggo',
+        lastName: 'Mortensen',
+        fullName: function () {
+          return `${this.firstName} ${this.lastName}`
+        },
+        shoutName: function() {
+          setTimeout(() => {
+            console.log(this.fullName())
+          },2000)
+        }
+      }
+      console.log(person.firstName)
+      console.log(person.lastName)
+      console.log(person.fullName())
+      console.log(person.shoutName())
+    </script>
+  </body>
 </html>
